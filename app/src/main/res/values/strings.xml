@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">HW1_Application</string>
+
+    <string name="title1">상품 선택 페이지</string>
+    <string name="title2">장바구니 페이지</string>
+    <string name="title3">구매 페이지</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

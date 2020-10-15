@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:elevation="10dp"
+        >
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkbox1"
+            android:layout_centerVertical="true"
+            />
+
+        <ImageView
+            android:layout_width="145dp"
+            android:layout_height="145dp"
+            android:layout_marginLeft="5dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/product1"
+            android:background="#FFECE0"
+            android:scaleType="fitXY"
+            android:padding="5dp"
+            android:id="@+id/imageView1"
+            android:layout_toRightOf="@id/checkbox1"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="25dp"
+            android:layout_alignTop="@+id/imageView1"
+            android:layout_toRightOf="@+id/imageView1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="7.5pt"
+                android:text="키르시 맨투맨"
+                android:id="@+id/textView1"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="7pt"
+            android:textStyle="italic"
+            android:text="56000원"
+            android:id="@+id/textView2"
+            android:layout_alignBottom="@id/imageView1"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"
+            />
+
+    </RelativeLayout>
+
+
+</LinearLayout>
