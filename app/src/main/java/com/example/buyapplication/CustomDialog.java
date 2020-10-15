@@ -1,4 +1,4 @@
-package com.example.hwapplication;
+package com.example.buyapplication;
 
 import android.app.Dialog;
 import android.content.Context;

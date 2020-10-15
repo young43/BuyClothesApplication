@@ -1,4 +1,4 @@
-package com.example.hwapplication;
+package com.example.buyapplication;
 
 import org.junit.Test;
 

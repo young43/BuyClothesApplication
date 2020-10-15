@@ -1,4 +1,4 @@
-package com.example.hwapplication;
+package com.example.buyapplication;
 
 public class BuyListItem {
     private String titleStr;
