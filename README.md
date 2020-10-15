@@ -19,7 +19,7 @@ Github: https://github.com/young43/BuyClothesApplication
   - [2.3 세번째 화면(구매)](#23-세번째-화면구매)
 
 - [3. 구현내용](#3-구현내용)
-  - [3.1 Activity](#31-Activity)s
+  - [3.1 Activity](#31-Activity)
   - [3.2 Fragment](#32-Fragment)
   - [3.3 Dialog](#33-Dialog)
   - [3.4 Custom ListView](#34-Custom-ListView)
