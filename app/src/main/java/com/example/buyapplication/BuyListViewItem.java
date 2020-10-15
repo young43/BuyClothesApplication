@@ -1,6 +1,6 @@
 package com.example.buyapplication;
 
-public class BuyListItem {
+public class BuyListViewItem {
     private String titleStr;
     private String descStr;
     private String cntStr;

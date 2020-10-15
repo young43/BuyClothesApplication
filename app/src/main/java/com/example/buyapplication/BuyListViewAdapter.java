@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class BuyListViewAdapter extends ArrayAdapter {
     // Adapter에 추가된 데이터를 저장하기 위한 ArrayList
-    private ArrayList<BuyListItem> listViewItemList = new ArrayList<BuyListItem>() ;
+    private ArrayList<BuyListViewItem> listViewItemList = new ArrayList<BuyListViewItem>() ;
 
     public BuyListViewAdapter(@NonNull Context context, int resource) {
         super(context, resource);
@@ -47,7 +47,7 @@ public class BuyListViewAdapter extends ArrayAdapter {
         TextView cntTextView = (TextView) convertView.findViewById(R.id.textv_buy_count);
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
-        BuyListItem listViewItem = listViewItemList.get(position);
+        BuyListViewItem listViewItem = listViewItemList.get(position);
 
         // 아이템 내 각 위젯에 데이터 반영
         titleTextView.setText(listViewItem.getTitle());
@@ -71,7 +71,7 @@ public class BuyListViewAdapter extends ArrayAdapter {
 
     // 아이템 데이터 추가를 위한 함수. 개발자가 원하는대로 작성 가능.
     public void addItem(String title, String desc, String cnt) {
-        BuyListItem item = new BuyListItem();
+        BuyListViewItem item = new BuyListViewItem();
 
         item.setTitle(title);
         item.setDesc(desc);
