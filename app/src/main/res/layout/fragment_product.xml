@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:id="@+id/layout_main"
+    android:animateLayoutChanges="true"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal|center_vertical"
+        android:id="@+id/textv_title1"
+        android:text="@string/title1"
+        android:textSize="8pt"
+        android:textStyle="bold|italic"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="#FFECCE"
+        android:elevation="10dp"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#808080"
+        android:layout_below="@+id/textv_title1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/textv_title1"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollv_1"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1">
+
+
+            <!--    스크롤 뷰는 한가지 View만을 자식으로 채택한다.    -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!--     상품1      -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/background_border"
+                    android:elevation="10dp"
+                    android:id="@+id/layout_product1"
+                    >
+
+                    <ImageView
+                        android:layout_width="145dp"
+                        android:layout_height="145dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="25dp"
+                        android:src="@drawable/product1"
+                        android:background="#FFECE0"
+                        android:scaleType="fitXY"
+                        android:padding="5dp"
+                        android:id="@+id/imgv_product1"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="25dp"
+                        android:layout_alignTop="@+id/imgv_product1"
+                        android:layout_toRightOf="@+id/imgv_product1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textSize="7.5pt"
+                            android:text="키르시 맨투맨"
+                            android:id="@+id/textv_product_title1"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="30dp"
+                            android:gravity="center"
+                            android:textSize="7pt"
+                            android:textStyle="italic"
+                            android:text="56000원"
+                            android:id="@+id/textv_product_price1"
+                            />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/imgv_product1"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="25dp"
+                        android:text="별점: ★★★★☆"
+                        />
+
+
+                </RelativeLayout>
+
+
+                <!--     상품2     -->
+                <RelativeLayout
+                    android:id="@+id/layout_product2"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/background_border"
+                    android:elevation="10dp">
+
+                    <ImageView
+                        android:id="@+id/imgv_product2"
+                        android:layout_width="145dp"
+                        android:layout_height="145dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="25dp"
+                        android:background="#FFECE0"
+                        android:padding="5dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/product2" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/imgv_product2"
+                        android:layout_marginRight="25dp"
+                        android:layout_toRightOf="@+id/imgv_product2"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textv_product_title2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="커버낫 맨투맨"
+                            android:textSize="7.5pt" />
+
+                        <TextView
+                            android:id="@+id/textv_product_price2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="30dp"
+                            android:gravity="center"
+                            android:text="32500원"
+                            android:textSize="7pt"
+                            android:textStyle="italic" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/imgv_product2"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="25dp"
+                        android:text="별점: ★★★☆☆" />
+
+                </RelativeLayout>
+
+
+                <!--     상품3     -->
+                <RelativeLayout
+                    android:id="@+id/layout_product3"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/background_border"
+                    android:elevation="10dp">
+
+                    <ImageView
+                        android:id="@+id/imgv_product3"
+                        android:layout_width="145dp"
+                        android:layout_height="145dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_centerVertical="true"
+                        android:background="#FFECE0"
+                        android:padding="5dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/product3" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/imgv_product3"
+                        android:layout_marginRight="25dp"
+                        android:layout_toRightOf="@+id/imgv_product3"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textv_product_title3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="칼하트 맨투맨"
+                            android:textSize="7.5pt" />
+
+                        <TextView
+                            android:id="@+id/textv_product_price3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="30dp"
+                            android:gravity="center"
+                            android:text="82500원"
+                            android:textSize="7pt"
+                            android:textStyle="italic" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/imgv_product3"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="25dp"
+                        android:text="별점: ★★★★★" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
