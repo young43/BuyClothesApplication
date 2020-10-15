@@ -13,6 +13,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -139,7 +140,6 @@ public class CartFragment extends Fragment {
                 ArrayList<HashMap<String, Object>> mapList = new ArrayList<>();
                 HashMap<String, HashMap<String, Object>> map = new HashMap<>();
 
-
                 int count = adapter.getCount();
                 boolean flag_check = false;
 
@@ -165,6 +165,12 @@ public class CartFragment extends Fragment {
                         }
 
                     }
+                }
+
+                // 선택한 상품이 없으면 예외처리
+                if(!flag_check) {
+                    Toast.makeText(getActivity(), "선택한 상품이 없습니다.", Toast.LENGTH_LONG).show();
+                    return;
                 }
 
                 for (String key : map.keySet()) {

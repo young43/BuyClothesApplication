@@ -1,16 +1,20 @@
 package com.example.buyapplication;
 
+import android.database.DataSetObserver;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +36,7 @@ public class BuyFragment extends Fragment {
     private ArrayList<HashMap<String, String>> buyList;
     private ListView listview ;
     private BuyListViewAdapter adapter;
+    private TextView textTotalPrice;
 
     private EditText editAddress, editNumber;
 
@@ -60,6 +65,7 @@ public class BuyFragment extends Fragment {
         buyList = new ArrayList<>();
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -78,6 +84,7 @@ public class BuyFragment extends Fragment {
                 tmp.put("title", title);
                 tmp.put("cnt", cnt+"");
                 tmp.put("totalPrice", totalPrice+"");
+                tmp.put("price", price+"");
 
                 buyList.add(tmp);
             }
@@ -88,26 +95,47 @@ public class BuyFragment extends Fragment {
         // Adapter 생성
         adapter = new BuyListViewAdapter(getActivity(), android.R.layout.simple_list_item_multiple_choice);
 
+        // 수량에 따른 가격 변화
+        adapter.registerDataSetObserver(new DataSetObserver() {
+            @Override
+            public void onChanged() {
+
+                int total_price = 0;
+                for(int i=0; i<adapter.getCount(); i++){
+                    BuyListViewItem item = (BuyListViewItem) adapter.getItem(i);
+                    total_price += Integer.parseInt(item.getDesc());
+                }
+                textTotalPrice.setText(total_price+"원");
+
+                super.onChanged();
+            }
+        });
+
+
         // 리스트뷰 참조 및 Adapter달기
         listview = (ListView) rootView.findViewById(R.id.list_buy);
         listview.setAdapter(adapter);
 
-        int total_price = 0;
 
         for(HashMap<String, String> m : buyList){
             String title = m.get("title");
             String cnt = m.get("cnt");
             String totalPrice = m.get("totalPrice");
-
-            total_price += Integer.parseInt(totalPrice);
+            String price = m.get("price");
 
             // 첫 번째 아이템 추가.
-            adapter.addItem(title, totalPrice, cnt);
-
+            adapter.addItem(title, totalPrice, cnt, price);
         }
         setListViewHeightBasedOnChildren(listview);     // 스크롤뷰 크기 조정
 
-        final TextView textTotalPrice = (TextView) rootView.findViewById(R.id.textv_total_price);
+
+        textTotalPrice = (TextView) rootView.findViewById(R.id.textv_total_price);
+
+        int total_price = 0;
+        for(int i=0; i<adapter.getCount(); i++){
+            BuyListViewItem item = (BuyListViewItem) adapter.getItem(i);
+            total_price += Integer.parseInt(item.getDesc());
+        }
         textTotalPrice.setText(total_price+"원");
 
         editAddress = (EditText) rootView.findViewById(R.id.edit_address);
