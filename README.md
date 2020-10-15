@@ -14,12 +14,12 @@ Github: https://github.com/young43/BuyClothesApplication
   - [1.2 소스파일 구성](#12-소스파일-구성)
   
 - [2. UI 설계](#2-UI-설계)
-  - [2.1 첫번째 화면(Main)](#21-첫번째-화면(Main))
+  - [2.1 첫번째 화면(Main)](#21-첫번째-화면\(Main\))
   - [2.2 두번째 화면(장바구니)](#22-두번째-화면(장바구니))
   - [2.3 세번째 화면(구매)](#23-세번째-화면(구매))
 
 - [3. 구현내용](#3-구현내용)
-  - [3.1 Activity](#31-Activity)
+  - [3.1 Activity](#31-Activity)s
   - [3.2 Fragment](#32-Fragment)
   - [3.3 Dialog](#33-Dialog)
   - [3.4 Custom ListView](#34-Custom-ListView)
