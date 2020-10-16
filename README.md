@@ -1,4 +1,5 @@
-# BuyClothes
+BuyClothes
+
 국민대학교 모바일프로그래밍 첫번째 개인과제에 대한 프로젝트입니다.
 
 20191633 윤서영
@@ -12,6 +13,8 @@ Github: https://github.com/young43/BuyClothesApplication
 - [1. 프로젝트 설명](#1-프로젝트-설명)
   - [1.1 프로젝트 개요](#11-프로젝트-개요)
   - [1.2 소스파일 구성](#12-소스파일-구성)
+  - [1.3 개발환경](#13-개발환경)
+  - [1.4 실행환경](#14-실행환경)
   
 - [2. UI 설계](#2-UI-설계)
   - [2.1 첫번째 화면(Main)](#21-첫번째-화면main)
@@ -46,9 +49,17 @@ Github: https://github.com/young43/BuyClothesApplication
 | BuyListViewItem.java    | 구매할 상품 리스트에 대한 아이템 클래스이다.                 |
 | BuyListViewAdapter.java | 구매할 상품 리스트를 보여주기위한 어댑터이다.                |
 
-### 1.3 동작(flow chart)
+### 1.3 개발환경
 
-생략.
+- Language: Java
+- IDE: Android Studio
+
+### 1.4 실행환경
+
+- AVD: Android Q(10.0 x86_64)
+- Compile
+  - minSDKVersion: 16
+  - compileSDKVersion: 30
 
 <br>
 
@@ -64,15 +75,13 @@ Github: https://github.com/young43/BuyClothesApplication
 | listview_item.xml     | ListViewAdapter    | 장바구니 화면의 리스트뷰에 대한 아이템 레이아웃이다. |
 | listview_item_buy.xml | BuyListViewAdapter | 구매 화면의 리스트뷰에 대한 아이템 레이아웃이다.     |
 
-
-
 ### 2.1 첫번째 화면(Main)
 
 첫번째 화면은 2개 이상의 상품 리스트를 보여주고, 선택하면 커스텀 다이얼로그를 띄우게 된다. 
 
 커스텀 다이얼로그에는 구매 버튼과 장바구니 버튼이 존재한다. 
 
-<img src="img/screenshot1.png" alt="첫번째 화면" style="zoom:33%;" />
+<img src="img/screenshot1.png" alt="첫화면 스크린샷" style="zoom:25%;" />
 
 ### 2.1.1 레이아웃
 
@@ -166,13 +175,11 @@ Main 액티비티는 사실상 하단 네비게이션바와 FramLayout 으로만
 </RelativeLayout>
 ```
 
-
-
 ### 2.2 두번째 화면(장바구니)
 
 장바구니 화면은 장바구니에 추가한 상품들에 대한 리스트를 출력해준다. 체크박스를 사용하여 상품을 선택할 수 있고, 장바구니에서 삭제할 수도 있다. 
 
-<img src="img/screenshot3.png" alt="두번째 화면" style="zoom:33%;" />
+<img src="img/screenshot3.png" alt="두번째 화면" style="zoom:25%;" />
 
 ### 2.2.1 레이아웃
 
@@ -326,8 +333,190 @@ android:elevation="10dp">
 </RelativeLayout>
 ```
 
-
-
 ### 2.3 세번째 화면(구매)
 
-구매 화면에서는 결제를 진행할 상품 리스트를 출력하고, 결제 총합을 
+구매 화면에서는 결제를 진행할 상품 리스트와 결제 총합을 출력한다. 선택한 상품이 여러개일 경우, 총합으로 계산하여 보여주고 수량을 수정할 수 있다. 구매자의 주소와 연락처를 입력해야만 결제를 진행할 수 있다. 최종적으로 결제가 완료되면, 다시 첫 화면(상품 선택 화면)으로 돌아간다.
+
+<img src="img/screenshot4.png" alt="세번째 화면" style="zoom:25%;" />
+
+<img src="img/screenshot5.png" alt="최종결제화면" style="zoom:25%;" />
+
+### 2.3.1 레이아웃
+
+최상위 부모 View는 GridLayout으로 구성하였다. 상단에는 주소와 연락처를 입력받을 수 있도록 EditText를 사용하였고, 장바구니 화면과 마찬가지로 구매할 상품 리스트를 보여주기위해 ListView와 ScrollView를 사용하였다. 하단에는 결제하기 버튼이 존재한다. 
+
+구매 화면 레이아웃은 _fragment_buy.xml_ 파일에 구성되어있다.
+
+```xml
+<GridLayout 	xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BuyFragment"
+    android:columnCount="3"
+    android:rowCount="10">
+
+    <TextView
+        android:layout_row="0"
+        android:layout_column="0"
+        android:layout_columnSpan="3"
+        android:id="@+id/textv_title3"
+        android:text="@string/title3"
+        android:textSize="8pt"/>
+
+    <TextView
+        android:layout_row="1"
+        android:layout_column="0"
+        android:text="주소 입력: "
+        android:textSize="14dp"/>
+
+    <EditText
+        android:id="@+id/edit_address"
+        android:layout_row="1"
+        android:layout_column="1"
+        android:layout_columnSpan="2"
+        android:hint="주소를 입력해주세요."
+        android:textSize="12dp"/>
+
+    <TextView
+        android:layout_row="2"
+        android:layout_column="0"
+        android:text="번호 입력: "
+        android:textSize="14dp"/>
+
+    <EditText
+        android:id="@+id/edit_phoneNumber"
+        android:layout_row="2"
+        android:layout_column="1"
+        android:layout_columnSpan="2"
+        android:hint="번호를 입력해주세요."
+        android:textSize="12dp"/>
+
+    <ScrollView
+        android:layout_row="3"
+        android:layout_column="0"
+        android:layout_columnSpan="3"
+        android:layout_rowSpan="5">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ListView
+                android:id="@+id/list_buy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_row="8"
+        android:layout_column="0"
+        android:layout_columnSpan="3"
+        android:orientation="horizontal"
+        android:gravity="right">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="총 결제 금액: "
+            android:textSize="17dp"/>
+
+        <TextView
+            android:id="@+id/textv_total_price"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="17dp"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_payment"
+        android:layout_row="9"
+        android:layout_column="0"
+        android:layout_columnSpan="3"
+        android:text="결제하기"
+        android:textSize="16dp"/>
+</GridLayout>
+```
+
+또한, GridLayout 안에 컴포넌트들은 아래 표와 같이 구성되어있다. 총 10행 3열인 GridLayout이다. 
+
+<img src="img/표.png" alt="GridLayout구성" style="zoom:48%;" />
+
+### 2.3.2 BuyListViewItem 레이아웃
+
+장바구니 화면과 마찬가지로 구매 화면에서도 구매할 상품의 리스트를 출력해야한다. 각 item 마다 필요한 정보들이 따로 존재하며, 수량을 표시하기위해 spinner를 정의하고자 하였다. 따라서 item에 대한 레이아웃을 따로 정의하였다.  GridLayout안에 TextView와 Spinner 컴포넌트로 구성하였다. 
+
+구매 리스트 ltem 레이아웃은 _listview_item_buy.xml_ 파일에 구성되어있다.
+
+```xml
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="15dp"
+    android:rowCount="2"
+    android:columnCount="3">
+
+    <TextView
+        android:layout_row="0"
+        android:layout_column="0"
+        android:id="@+id/textv_buy_product"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="상품명"
+        android:textSize="20dp"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_row="1"
+        android:layout_column="0">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="수량: "
+            android:textSize="17dp"/>
+
+        <Spinner
+            android:id="@+id/spinner_cnt"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="개"
+            android:textSize="17dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_row="0"
+        android:layout_column="1"
+        android:layout_columnSpan="2"
+        android:layout_rowSpan="2"
+        android:gravity="right"
+        android:id="@+id/textv_buy_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="가격"
+        android:textSize="17dp"/>
+</GridLayout>
+```
+
+### 2.3.3 Spinner 사용
+
+구매 화면에서는 Spinner를 사용하여 수량을 다시 수정할 수 있도록 하였다.  Spinner의 경우 동적/정적으로 생성하는 방법이 존재하는데, 이 프로젝트에서는 정적생성 방식을 선택하였다. 따라서, _values/arrays.xml_ 파일에 데이터들을 생성하였다.
+
+```xml
+<string-array name="product_cnt">
+    <item>1</item>
+    <item>2</item>
+    <item>3</item>
+    <item>4</item>
+    <item>5</item>
+    <item>6</item>
+    <item>7</item>
+    <item>8</item>
+    <item>9</item>
+    <item>10</item>
+</string-array>
+```
+
