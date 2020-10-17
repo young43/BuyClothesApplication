@@ -140,7 +140,8 @@ public class ProductFragment extends Fragment implements View.OnClickListener {
 
         customDialog.callFunction(title, price);
 
-
-
     }
 }
+
+
+

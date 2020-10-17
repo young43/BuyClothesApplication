@@ -59,13 +59,11 @@ public class CustomDialog {
         final String t_price = price.replace("원", "");
         final String t_title = product;
 
-        final MainActivity activity = (MainActivity) context;
         buttonPurchase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 myDialogListener.onPositiveClicked(2, t_title, t_price);
                 dlg.dismiss();
-                //activity.setFrag(2);
             }
         });
 
@@ -74,7 +72,6 @@ public class CustomDialog {
             public void onClick(View view) {
                 myDialogListener.onPositiveClicked(1, t_title, t_price);
                 dlg.dismiss();
-                //activity.setFrag(1);
             }
         });
 
