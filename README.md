@@ -81,7 +81,7 @@ Github: https://github.com/young43/BuyClothesApplication
 
 커스텀 다이얼로그에는 구매 버튼과 장바구니 버튼이 존재한다. 
 
-<img src="https://github.com/young43/BuyClothesApplication/blob/main/img/screenshot1.png" alt="첫화면 스크린샷" width=250/>
+<img src="https://github.com/young43/BuyClothesApplication/blob/main/img/screenshot1.png?raw=true" alt="첫화면 스크린샷" width=250/>
 
 ### 2.1.1 레이아웃
 
@@ -179,7 +179,7 @@ Main 액티비티는 사실상 하단 네비게이션바와 FramLayout 으로만
 
 장바구니 화면은 장바구니에 추가한 상품들에 대한 리스트를 출력해준다. 체크박스를 사용하여 상품을 선택할 수 있고, 장바구니에서 삭제할 수도 있다. 
 
-<img src="https://github.com/young43/BuyClothesApplication/blob/main/img/screenshot3.png" alt="두번째 화면" width=250/>
+<img src="https://github.com/young43/BuyClothesApplication/blob/main/img/screenshot3.png?raw=true" alt="두번째 화면" width=250/>
 
 ### 2.2.1 레이아웃
 
@@ -337,9 +337,9 @@ android:elevation="10dp">
 
 구매 화면에서는 결제를 진행할 상품 리스트와 결제 총합을 출력한다. 선택한 상품이 여러개일 경우, 총합으로 계산하여 보여주고 수량을 수정할 수 있다. 구매자의 주소와 연락처를 입력해야만 결제를 진행할 수 있다. 최종적으로 결제가 완료되면, 다시 첫 화면(상품 선택 화면)으로 돌아간다.
 
-<img src="https://github.com/young43/BuyClothesApplication/blob/main/img/screenshot4.png" alt="세번째 화면" width=250/>
+<img src="https://github.com/young43/BuyClothesApplication/blob/main/img/screenshot4.png?raw=true" alt="세번째 화면" width=250/>
 
-<img src="https://github.com/young43/BuyClothesApplication/blob/main/img/screenshot5.png" alt="최종결제화면" width=250/>
+<img src="https://github.com/young43/BuyClothesApplication/blob/main/img/screenshot5.png?raw=true" alt="최종결제화면" width=250/>
 
 ### 2.3.1 레이아웃
 
@@ -439,7 +439,7 @@ android:elevation="10dp">
 
 또한, GridLayout 안에 컴포넌트들은 아래 표와 같이 구성되어있다. 총 10행 3열인 GridLayout이다. 
 
-<img src="https://github.com/young43/BuyClothesApplication/blob/main/img/표.png" alt="GridLayout구성" width=350/>
+<img src="https://github.com/young43/BuyClothesApplication/blob/main/img/표.png?raw=true" alt="GridLayout구성" width=350/>
 
 ### 2.3.2 BuyListViewItem 레이아웃
 
